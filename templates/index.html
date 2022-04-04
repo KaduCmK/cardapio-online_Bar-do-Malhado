@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar do Malhado</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+<div class="foto">
+    <div class="fade">
+        <p>Cardápio</p>
+    </div>
+</div>
+<div class="logo"></div>
+
+<div class="cardapio">
+    <h1>Ainda não estamos prontos!</h1>
+</div>
+
+<script>
+    const checkpoint = 500
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset
+        if (currentScroll <= checkpoint) {
+            height = 30 - currentScroll/33
+            gray = currentScroll/5
+        } else {
+            height = 15
+            gray = 100
+        }
+        document.querySelector(".logo").style.height = height+'vh'
+        document.querySelector(".logo").style.filter = `grayscale(${gray}%)`
+    })
+</script>
+</body>
+</html>
