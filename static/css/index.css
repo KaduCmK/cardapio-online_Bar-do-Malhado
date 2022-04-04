@@ -13,6 +13,7 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position: relative;
 }
 
 .fade {
@@ -21,7 +22,7 @@ html, body {
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(0,212,255,0) 100%);
     position: absolute;
-    bottom: 30vh;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +47,7 @@ html, body {
 
 .cardapio {
     width: 100%;
-    height: 80vh;
+    height: 150vh;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Noun_Project_maintenance_icon_943595_cc.svg/110px-Noun_Project_maintenance_icon_943595_cc.svg.png?20180327221008);
     background-repeat: no-repeat;
     background-size: 25vh;
