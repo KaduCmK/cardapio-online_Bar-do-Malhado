@@ -23,16 +23,14 @@
     <div class="comidas">
         <h1 class="title">Comidas</h1>
         <hr>
-        <div class="product">
-            <h1>title</h1>
-            <h3>subtitle</h3>
-            <h2>price</h2>
-        </div>
-        <div class="product">
-            <h1>title</h1>
-            <h3>subtitle</h3>
-            <h2>price</h2>
-        </div>
+        {% for produto in produtos %}
+            <div class="product">
+                <h2 class="nome">{{ produto['nome'] }}</h2>
+                <h3 class="sabor">{{ produto['sabor'] }}</h3>
+                <h4 class="subtitle">{{ produto['subtitle'] }}</h4>
+                <h2 class="preco">R$ {{ format(produto['preco'], '.2f') }}</h2>
+            </div>
+        {% endfor %}
     </div>
     <div class="bebidas">
         <h1 class="title">Bebidas</h1>
@@ -56,10 +54,10 @@
     window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset
         if (currentScroll <= checkpoint) {
-            height = 30 - currentScroll/33
+            height = 30 - currentScroll/25
             gray = currentScroll/5
         } else {
-            height = 15
+            height = 10
             gray = 100
         }
         document.querySelector(".logo").style.height = height+'vh'
