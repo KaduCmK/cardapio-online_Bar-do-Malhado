@@ -65,14 +65,6 @@
         document.querySelector(".logo").style.height = height+'vh'
         document.querySelector(".logo").style.filter = `grayscale(${gray}%)`
     })
-
-    (function () {
-        var a = document.body,
-            e = document.documentElement;
-        $(window).unbind(".foto").scroll(function () {
-            a.style.backgroundPosition = "0px " + -(Math.max(e.scrollTop, a.scrollTop) / 8) + "px";
-        });
-    })();
 </script>
 </body>
 </html>
