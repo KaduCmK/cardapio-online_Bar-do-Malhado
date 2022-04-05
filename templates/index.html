@@ -15,8 +15,39 @@
 </div>
 <div class="logo"></div>
 
-<div class="cardapio">
+<!-- <div class="manutencao">
     <h1>Ainda não estamos prontos!</h1>
+</div> -->
+
+<div class="cardapio">
+    <div class="comidas">
+        <h1 class="title">Comidas</h1>
+        <hr>
+        <div class="product">
+            <h1>title</h1>
+            <h3>subtitle</h3>
+            <h2>price</h2>
+        </div>
+        <div class="product">
+            <h1>title</h1>
+            <h3>subtitle</h3>
+            <h2>price</h2>
+        </div>
+    </div>
+    <div class="bebidas">
+        <h1 class="title">Bebidas</h1>
+        <hr>
+        <div class="product">
+            <h1>title</h1>
+            <h3>subtitle</h3>
+            <h2>price</h2>
+        </div>
+        <div class="product">
+            <h1>title</h1>
+            <h3>subtitle</h3>
+            <h2>price</h2>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -34,6 +65,14 @@
         document.querySelector(".logo").style.height = height+'vh'
         document.querySelector(".logo").style.filter = `grayscale(${gray}%)`
     })
+
+    (function () {
+        var a = document.body,
+            e = document.documentElement;
+        $(window).unbind(".foto").scroll(function () {
+            a.style.backgroundPosition = "0px " + -(Math.max(e.scrollTop, a.scrollTop) / 8) + "px";
+        });
+    })();
 </script>
 </body>
 </html>

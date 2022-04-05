@@ -4,6 +4,8 @@ html, body {
     max-width: 100vh;
     height: auto;
     margin: 0;
+    background-color: #212121;
+
 }
 
 .foto {
@@ -43,9 +45,29 @@ html, body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    box-shadow: 0px 6px 20px -2px #000000
+    ;
 }
 
 .cardapio {
+    color: aliceblue;
+    max-width: 100%;
+}
+
+.cardapio .title {
+    font-size: 10vw;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+}
+
+.product {
+    width: 100%;
+    box-shadow: 3px 3px 10px -3px #000000;
+    border-radius: 10px;
+    padding: 1px;
+}
+
+.manutencao {
     width: 100%;
     height: 150vh;
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Noun_Project_maintenance_icon_943595_cc.svg/110px-Noun_Project_maintenance_icon_943595_cc.svg.png?20180327221008);
@@ -56,5 +78,5 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Bebas Neue';
+    font-family: 'Bebas Neue', sans-serif;
 }
