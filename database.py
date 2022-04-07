@@ -1,9 +1,6 @@
 import os
 import psycopg2
 
-user = os.getenv('DB_USER')
-password = os.getenv('DB_PASSWORD')
-
 def conectar():
     conexao = psycopg2.connect(
     host=os.getenv('DATABASE_URL'),
