@@ -23,27 +23,46 @@
     <div class="comidas">
         <h1 class="title">Comidas</h1>
         <hr>
-        {% for produto in produtos %}
-            <div class="product">
-                <h2 class="nome">{{ produto['nome'] }}</h2>
-                <h3 class="sabor">{{ produto['sabor'] }}</h3>
-                <h4 class="subtitle">{{ produto['subtitle'] }}</h4>
-                <h2 class="preco">R$ {{ format(produto['preco'], '.2f') }}</h2>
-            </div>
+        {% for grupo in gruposcomidas %}
+            <button type="button" class="collapse">{{ grupo[0] }}</button>
+            <div class="group">
+                {% for produto in comidas %}
+                    {% if produto[1] == grupo[0] %}
+                        <div class="product">
+                            <div class="left">
+                                <h3 class="nome">{{ produto[2] }}</h3>
+                                <h4 class="descricao">{{ produto[3] }}</h4>
+                            </div>
+                            <div class="right">
+                                <h2 class="preco">{{ produto[4] }}</h2>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        </div>
         {% endfor %}
     </div>
     <div class="bebidas">
         <h1 class="title">Bebidas</h1>
         <hr>
-        <div class="product">
-            <h1>title</h1>
-            <h3>subtitle</h3>
-            <h2>price</h2>
+        {% for grupo in gruposbebidas %}
+            <button type="button" class="collapse">{{ grupo[0] }}</button>
+            <div class="group">
+                {% for produto in bebidas %}
+                    {% if produto[1] == grupo[0] %}
+                        <div class="product">
+                            <div class="left">
+                                <h3 class="nome">{{ produto[2] }}</h3>
+                                <h4 class="descricao">{{ produto[3] }}</h4>
+                            </div>
+                            <div class="right">
+                                <h2 class="preco">{{ produto[4] }}</h2>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
         </div>
-        <div class="product">
-            <h1>title</h1>
-            <h3>subtitle</h3>
-            <h2>price</h2>
+        {% endfor %}
         </div>
     </div>
 </div>
@@ -63,6 +82,21 @@
         document.querySelector(".logo").style.height = height+'vh'
         document.querySelector(".logo").style.filter = `grayscale(${gray}%)`
     })
+
+    var coll = document.getElementsByClassName("collapse");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+        content.style.maxHeight = null;
+        } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        }
+        });
+    }
 </script>
 </body>
 </html>

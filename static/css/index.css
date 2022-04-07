@@ -59,13 +59,51 @@ html, body {
     text-align: center;
 }
 
-.product {
-    width: 100%;
-    box-shadow: 3px 3px 10px -3px #000000;
+.collapse {
+    width: 100vw;
+    padding: 10px 0px 8px 10px;
+    background-color: #1a1a1a;
+    color: aliceblue;
+    outline: none;
+    border: none;
     border-radius: 10px;
-    padding-left: 2px;
+    box-shadow: 3px 3px 10px -3px #000000;
     font-family: 'Bebas Neue', sans-serif;
-    text-align: center;
+    text-align: left;
+    font-size: 8vw;
+}
+
+.group {
+    width: 97vw;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px -3px #000000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.product {
+    display: fixed;
+    padding: 3px 5px 3px 5px;
+}
+
+.nome {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.descricao {
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.preco {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    text-align: right;
 }
 
 .manutencao {
