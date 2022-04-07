@@ -1,12 +1,21 @@
 import os
 import psycopg2
+import urllib.parse as urlparse
 
 def conectar():
+    url = urlparse.urlparse(os.getenv('DATABASE_URL'))
+    dbname = url.path[1:]
+    user = url.username
+    password = url.password
+    host = url.hostname
+    port = url.port
+
     conexao = psycopg2.connect(
-    host=os.getenv('DATABASE_URL'),
-    database=os.getenv('DATABASE'),
-    user=os.getenv('DB_USER'),
-    password=os.getenv('DB_PASSWORD')
+    dbname=dbname,
+    user=user,
+    password=password,
+    host=host,
+    port=port
     )
 
     cursor = conexao.cursor()
