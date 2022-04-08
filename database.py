@@ -67,8 +67,9 @@ def selectAllFromGrupo(table, grupo):
     con.close()
     return grupos
 
-def inserir(table, grupo, nome, descricao=' ', preco=00.00):
+def inserir(table, grupo, nome, descricao, preco):
     con, cur = conectar()
+    preco = format(float(str(preco.replace(',', '.'))), '.2f')
     cur.execute(f"INSERT INTO {table} (grupo, nome, descricao, preco) VALUES ('{grupo}', '{nome}', '{descricao}', {preco})")
     
     con.commit()

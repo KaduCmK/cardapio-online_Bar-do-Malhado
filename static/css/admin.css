@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+html, body {
+    margin: 0;
+    max-width: 100vw;
+    height: 100%;
+}
+
+.header {
+    background-color: black;
+    color: aliceblue;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 4vh;
+    text-align: center;
+    padding: 1px;
+}
+
+.content {
+    height: 80%;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.titulo {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 35px;
+    text-align: center;
+}
+
+.grupo {
+    height: 70vh;
+    width: 40vw;
+    margin: 0 10px 0 10px;
+    border: solid 2px;
+    overflow-y: scroll;
+}
+
+.produto {
+    display: flex;
+    margin: 1% 5% 1% 5%;
+    width: 30%;
+    border: solid 1px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-tracks: center;
+}
+
+.new {
+    margin: 5vh;
+    width: 50vw;
+    height: 5vh;
+}

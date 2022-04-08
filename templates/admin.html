@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+    <link rel="stylesheet" href="../static/css/admin.css">
+</head>
+<body>
+    <div class="header">
+        <p class="title">Administração</p>
+    </div>
+    <div class="content">
+        <div class="comidas">
+            <p class="titulo">Comidas</p>
+            <div class="grupo">
+                {% for comida in comidas %}
+                    <div style="display: flex; border: solid 1px;">
+                        <div class="produto">
+                            <p>{{ comida[2] }}</p>
+                        </div>
+                        <div class="produto">
+                            <p>{{ comida[3] }}</p>
+                        </div>
+                        <div class="produto">
+                            <p>{{ comida[4] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="bebidas">
+            <p class="titulo">Bebidas</p>
+            <div class="grupo">
+                {% for bebida in bebidas %}
+                <div style="display: flex; border: solid 1px;">
+                    <div class="produto">
+                        <p>{{ bebida[2] }}</p>
+                    </div>
+                    <div class="produto">
+                        <p>{{ bebida[3] }}</p>
+                    </div>
+                    <div class="produto">
+                        <p>{{ bebida[4] }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    <div class="buttons">
+        <a href={{ "/adicionar/" ~ key}}>
+            <button class="new">Novo produto</button>
+        </a>
+    </div>
+</body>
+</html>

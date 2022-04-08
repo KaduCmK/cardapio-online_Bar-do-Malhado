@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+html, body {
+    margin: 0;
+    max-width: 100vw;
+    height: 100%;
+}
+
+.header {
+    background-color: black;
+    color: aliceblue;
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: 4vh;
+    text-align: center;
+    padding: 1px;
+}
+
+.form {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    margin: 10px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
