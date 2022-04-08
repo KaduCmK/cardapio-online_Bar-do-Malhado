@@ -121,6 +121,7 @@ def generatekey():
     con.commit()
     cur.close()
     con.close()
+    return key
 
 def getKey():
     con, cur = conectar()

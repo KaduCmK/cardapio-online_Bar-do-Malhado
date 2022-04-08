@@ -26,8 +26,7 @@ def login():
     if request.method == 'POST':
         senha = request.form['senha']
         if senha == os.getenv('SENHA_ACESSO'):
-            db.generatekey()
-            key = db.getKey()
+            key = db.generatekey()
             return redirect(f'/admin/{key}')
         else:
             return render_template('login.html', msg='senha incorreta')
