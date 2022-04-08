@@ -26,8 +26,8 @@ def login():
     if request.method == 'POST':
         senha = request.form['senha']
         if senha == os.getenv('SENHA_ACESSO'):
-            global key
-            key = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+            db.generatekey()
+            key = db.getKey()
             return redirect(f'/admin/{key}')
         else:
             return render_template('login.html', msg='senha incorreta')
@@ -43,18 +43,19 @@ def redirecionar():
 
 @app.route(f'/admin/<link>', methods=['GET', 'POST'])
 def admin(link):
+    key = db.getKey()
     if link != key:
         return redirect('/login')
 
     comidas = db.selectAllProdutos('comidas')
     bebidas = db.selectAllProdutos('bebidas')
-    x = f'/adicionar/{key}'
         
     return render_template('admin.html', comidas=comidas, bebidas=bebidas, key=key)
 
 
 @app.route(f'/adicionar/<link>', methods=['GET', 'POST'])
 def adicionar(link):
+    key = db.getKey()
     if link != key:
         return redirect('/login')
     

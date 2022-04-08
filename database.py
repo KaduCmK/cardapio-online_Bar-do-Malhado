@@ -1,6 +1,8 @@
 import os
 import psycopg2
 import urllib.parse as urlparse
+import random
+import string
 
 if os.getenv('DEV') == 'True':
     dbname = 'bardomalhado'
@@ -110,7 +112,24 @@ def alterarPreco(table, id, preco):
     cur.close()
     con.close()
 
-# inserir('Bernardo', 'Santos', 8)
+def generatekey():
+    con, cur = conectar()
+    key = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
+    cur.execute("DELETE FROM keys;")
+    cur.execute(f"INSERT INTO keys (key) VALUES ('{key}');")
+
+    con.commit()
+    cur.close()
+    con.close()
+
+def getKey():
+    con, cur = conectar()
+    cur.execute(f"SELECT * FROM keys")
+    key = cur.fetchone()
+    
+    cur.close()
+    con.close()
+    return key[0]
   
 # conexao.commit()
 # c.close()
