@@ -2,7 +2,13 @@ import os
 import psycopg2
 import urllib.parse as urlparse
 
-def conectar():
+if os.getenv('DEV') == 'True':
+    dbname = 'bardomalhado'
+    user = 'kadu'
+    password = '2512'
+    host = '127.0.0.1'
+    port='5432'
+else:
     url = urlparse.urlparse(os.getenv('DATABASE_URL'))
     dbname = url.path[1:]
     user = url.username
@@ -10,6 +16,8 @@ def conectar():
     host = url.hostname
     port = url.port
 
+
+def conectar():
     conexao = psycopg2.connect(
     dbname=dbname,
     user=user,
@@ -50,7 +58,7 @@ def selectDistinctGrupos(table):
     con.close()
     return grupos
 
-def getByGrupo(table, grupo):
+def selectAllFromGrupo(table, grupo):
     con, cur = conectar()
     cur.execute(f"SELECT * FROM {table} WHERE grupo = '{grupo}'")
     grupos = cur.fetchall()
