@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from flask import Flask, render_template, request, redirect
 import os
 import random
