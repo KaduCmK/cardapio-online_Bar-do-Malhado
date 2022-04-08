@@ -4,9 +4,9 @@ import urllib.parse as urlparse
 
 if os.getenv('DEV') == 'True':
     dbname = 'bardomalhado'
-    user = 'kadu'
-    password = '2512'
-    host = '127.0.0.1'
+    user = os.getenv('DB_USER')
+    password = os.getenv('DB_PASSWORD')
+    host = 'localhost'
     port='5432'
 else:
     url = urlparse.urlparse(os.getenv('DATABASE_URL'))
