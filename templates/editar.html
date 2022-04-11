@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+</head>
+<body>
+    <div class="content">
+        <form action={{ "/admin/" ~ key }} method="post">
+            <input type="hidden" name="table" value={{ table }}>
+            <input type="hidden" name="id" value={{ produto[0] }}>
+            <input type="text" name="grupo" value='{{ produto[1] }}'>
+            <input type="text" name="nome" value='{{ produto[2] }}'>
+            <input type="text" name="descricao" value='{{ produto[3] }}'>
+            <input type="text" name="preco" value={{ produto[4] }}>
+            <button type="submit">Alterar</button>
+        </form>
+    </div>
+</body>
+</html>

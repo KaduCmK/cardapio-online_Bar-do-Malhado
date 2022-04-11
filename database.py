@@ -34,7 +34,7 @@ def conectar():
 
 def selectAllProdutos(table):
     con, cur = conectar()
-    cur.execute(f"SELECT * FROM {table};")
+    cur.execute(f"SELECT * FROM {table} ORDER BY id;")
     comidas = cur.fetchall()
 
     cur.close()
@@ -69,10 +69,34 @@ def selectAllFromGrupo(table, grupo):
     con.close()
     return grupos
 
+def getFromId(table, id):
+    con, cur = conectar()
+    cur.execute(f"SELECT * FROM {table} WHERE id = {id}")
+    produto = cur.fetchone()
+
+    cur.close()
+    con.close()
+
+    return produto
+
 def inserir(table, grupo, nome, descricao, preco):
     con, cur = conectar()
     preco = format(float(str(preco.replace(',', '.'))), '.2f')
     cur.execute(f"INSERT INTO {table} (grupo, nome, descricao, preco) VALUES ('{grupo}', '{nome}', '{descricao}', {preco})")
+    
+    con.commit()
+    cur.close()
+    con.close()
+
+def alterar(table, id, grupo, nome, descricao, preco):
+    con, cur = conectar()
+    preco = format(float(str(preco.replace(',', '.'))), '.2f')
+    cur.execute(f"""UPDATE {table}
+                    SET grupo = '{grupo}',
+                        nome = '{nome}',
+                        descricao = '{descricao}',
+                        preco = {preco}
+                    WHERE id = {id}""")
     
     con.commit()
     cur.close()

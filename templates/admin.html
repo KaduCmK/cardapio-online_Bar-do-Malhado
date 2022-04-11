@@ -17,6 +17,9 @@
             <div class="grupo">
                 {% for comida in comidas %}
                     <div style="display: flex; border: solid 1px;">
+                        <form action={{ "/editar/comidas/" ~ comida[0] ~ "/" ~ key}} method="post">
+                            <button type="submit">Editar</button>
+                        </form>
                         <div class="produto">
                             <p>{{ comida[2] }}</p>
                         </div>
@@ -35,6 +38,9 @@
             <div class="grupo">
                 {% for bebida in bebidas %}
                 <div style="display: flex; border: solid 1px;">
+                    <form action={{ "/editar/bebidas/" ~ bebida[0] ~ "/" ~ key}} method="post">
+                        <button type="submit">Editar</button>
+                    </form>
                     <div class="produto">
                         <p>{{ bebida[2] }}</p>
                     </div>

@@ -45,6 +45,16 @@ def admin(link):
     key = db.getKey()
     if link != key:
         return redirect('/login')
+    
+    if request.method == 'POST':
+        db.alterar(
+            request.form['table'],
+            request.form['id'],
+            request.form['grupo'],
+            request.form['nome'],
+            request.form['descricao'],
+            request.form['preco']
+        )
 
     comidas = db.selectAllProdutos('comidas')
     bebidas = db.selectAllProdutos('bebidas')
@@ -70,6 +80,18 @@ def adicionar(link):
     
     return render_template('adicionar.html', key=key)
     
+
+@app.route(f'/editar/<table>/<id>/<link>', methods=['GET', 'POST'])
+def editar(table, id, link):
+    key = db.getKey()
+    if link != key:
+        return redirect('/login')
+    
+    if request.method == 'POST':
+        produto = db.getFromId(table, id)
+
+    return render_template('editar.html', produto=produto, table=table, key=key)
+
 
 if __name__ == '__main__':
     app.run()
