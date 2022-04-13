@@ -34,7 +34,7 @@ def conectar():
 
 def selectAllProdutos(table):
     con, cur = conectar()
-    cur.execute(f"SELECT * FROM {table} ORDER BY id;")
+    cur.execute(f"SELECT * FROM {table} ORDER BY nome;")
     comidas = cur.fetchall()
 
     cur.close()

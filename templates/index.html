@@ -34,7 +34,9 @@
                                 <h4 class="descricao">{{ produto[3] }}</h4>
                             </div>
                             <div class="right">
-                                <h2 class="preco">{{ produto[4] }}</h2>
+                                {% if produto[4] != 0.00 %}
+                                    <h2 class="preco">{{ produto[4] }}</h2>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
@@ -56,7 +58,9 @@
                                 <h4 class="descricao">{{ produto[3] }}</h4>
                             </div>
                             <div class="right">
-                                <h2 class="preco">{{ produto[4] }}</h2>
+                                {% if produto[4] != 0.00 %}
+                                    <h2 class="preco">{{ produto[4] }}</h2>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
