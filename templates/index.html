@@ -78,7 +78,7 @@
 <button type="button" class="collapse" style="margin-top: 50px; text-align: center;">Pagar com PIX</button>
 <div class="group">
     <form action="/pagar" method="post">
-        <input type="number" name="valor" id="valor" placeholder="Insira o valor">
+        <input type="number" step=".01" name="valor" id="valor" placeholder="Insira o valor">
         <button type="submit">Gerar QR Code</button>
     </form>
 </div>
