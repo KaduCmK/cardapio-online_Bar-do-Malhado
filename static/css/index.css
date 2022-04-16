@@ -106,6 +106,17 @@ html, body {
     text-align: right;
 }
 
+.qrcode {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 10px 25px 10px 25px;
+}
+
 .manutencao {
     width: 100%;
     height: 150vh;
@@ -118,4 +129,10 @@ html, body {
     align-items: center;
     justify-content: center;
     font-family: 'Bebas Neue', sans-serif;
+}
+
+.group > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

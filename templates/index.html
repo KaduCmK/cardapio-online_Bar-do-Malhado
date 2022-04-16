@@ -31,7 +31,9 @@
                         <div class="product">
                             <div class="left">
                                 <h3 class="nome">{{ produto[2] }}</h3>
-                                <h4 class="descricao">{{ produto[3] }}</h4>
+                                {% if produto[3] != ' ' %}
+                                    <h4 class="descricao">{{ produto[3] }}</h4>
+                                {% endif %}
                             </div>
                             <div class="right">
                                 {% if produto[4] != 0.00 %}
@@ -55,7 +57,9 @@
                         <div class="product">
                             <div class="left">
                                 <h3 class="nome">{{ produto[2] }}</h3>
-                                <h4 class="descricao">{{ produto[3] }}</h4>
+                                {% if produto[3] != '' %}
+                                    <h4 class="descricao">{{ produto[3] }}</h4>
+                                {% endif %}
                             </div>
                             <div class="right">
                                 {% if produto[4] != 0.00 %}
@@ -69,6 +73,14 @@
         {% endfor %}
         </div>
     </div>
+</div>
+
+<button type="button" class="collapse" style="margin-top: 50px; text-align: center;">Pagar com PIX</button>
+<div class="group">
+    <form action="/pagar" method="post">
+        <input type="number" name="valor" id="valor" placeholder="Insira o valor">
+        <button type="submit">Gerar QR Code</button>
+    </form>
 </div>
 
 <script>

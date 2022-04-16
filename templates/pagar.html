@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar com PIX</title>
+    <link rel="stylesheet" href="../static/css/pagar.css">
+</head>
+<body>
+    <div class="qrcode">
+        <p class="title">Escaneie o código abaixo no app do seu banco para pagar com PIX:</p>
+        <img src="../static/img/pagamento.png" alt="QR Code">
+        <p class="title">{{ 'Valor: R$ ' ~ valor }}</p>
+    </div>
+    <div class="button">
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>

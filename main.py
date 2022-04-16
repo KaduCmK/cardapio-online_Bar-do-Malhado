@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import os
-import random
-import string
 import database as db
+import codigoQR
 
 app = Flask(__name__)
 if os.getenv('DEV') == 'True':
@@ -32,6 +31,15 @@ def login():
             return render_template('login.html', msg='senha incorreta')
         
     return render_template('login.html')
+
+
+@app.route('/pagar', methods=['GET', 'POST'])
+def pagar():
+    if request.method == 'POST':
+        valor = str(format(float(request.form['valor']), '.2f'))
+        codigoQR.gerarQRCode(valor)
+
+    return render_template('pagar.html', valor=valor)
 
 
 @app.route('/adicionar')
