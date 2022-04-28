@@ -136,6 +136,14 @@ def alterarPreco(table, id, preco):
     cur.close()
     con.close()
 
+def remover(table, id):
+    con, cur = conectar()
+    cur.execute(f"DELETE FROM {table} WHERE id={id}")
+    
+    con.commit()
+    cur.close()
+    con.close()
+
 def generatekey():
     con, cur = conectar()
     key = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))

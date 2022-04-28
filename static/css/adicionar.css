@@ -22,12 +22,27 @@ html, body {
     align-items: center;
 }
 
+.table {
+    font-family: 'Bebas Neue', Impact;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .content {
-    margin: 10px;
+    margin: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .buttons {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (orientation: portrait) {
+    .content {flex-direction: column;}
 }

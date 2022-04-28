@@ -67,7 +67,7 @@ def admin(link):
     comidas = db.selectAllProdutos('comidas')
     bebidas = db.selectAllProdutos('bebidas')
         
-    return render_template('admin.html', comidas=comidas, bebidas=bebidas, key=key)
+    return render_template('admin.html', comidas=comidas, bebidas=bebidas, key=key, remover=db.remover)
 
 
 @app.route(f'/adicionar/<link>', methods=['GET', 'POST'])
@@ -75,6 +75,9 @@ def adicionar(link):
     key = db.getKey()
     if link != key:
         return redirect('/login')
+    
+    if request.method == 'GET':
+        table = request.args['table']
     
     if request.method == 'POST':
         table = request.form['table']
@@ -86,7 +89,7 @@ def adicionar(link):
 
         return redirect(f'/admin/{key}')
     
-    return render_template('adicionar.html', key=key)
+    return render_template('adicionar.html', key=key, table=table)
     
 
 @app.route(f'/editar/<table>/<id>/<link>', methods=['GET', 'POST'])
@@ -99,6 +102,19 @@ def editar(table, id, link):
         produto = db.getFromId(table, id)
 
     return render_template('editar.html', produto=produto, table=table, key=key)
+
+
+@app.route(f'/remover/<link>', methods=['POST'])
+def remover(link):
+    key = db.getKey()
+    if link != key:
+        return redirect('/login')
+
+    table = request.form['table']
+    id = request.form['id']
+    db.remover(table, id)
+
+    return redirect(f'/admin/{key}')
 
 
 if __name__ == '__main__':

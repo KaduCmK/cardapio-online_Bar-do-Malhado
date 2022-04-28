@@ -18,7 +18,7 @@ html, body {
 .content {
     height: 80%;
     display: flex;
-    
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding-top: 15px;
@@ -42,17 +42,28 @@ html, body {
     display: flex;
     margin: 1% 5% 1% 5%;
     width: 30%;
-    border: solid 1px;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
     align-tracks: center;
+    width: 85%
 }
 
 .new {
     margin: 5vh;
     width: 50vw;
     height: 5vh;
+}
+
+@media (orientation: portrait) {
+    .content {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .grupo, .comidas, .bebidas {
+        width: 95%;
+    }
 }

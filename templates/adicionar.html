@@ -13,11 +13,9 @@
     </div>
     <div class="form">
             <form action={{ "/adicionar/" ~ key}} method="post">
+                <p class="table">{{ table }}</p>
                 <div class="content">
-                    <select name="table" id="table">
-                        <option value="comidas">Comida</option>
-                        <option value="bebidas">Bebida</option>
-                    </select>
+                    <input type="hidden" name="table" value={{ table }}>                    
                     <input type="text" name="grupo" placeholder="Grupo">
                     <input type="text" name="nome" placeholder="Nome">
                     <input type="text" name="descricao" placeholder="Descrição (Opcional)">

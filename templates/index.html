@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar do Malhado</title>
     <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div class="foto">
@@ -43,7 +44,7 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-        </div>
+            </div>
         {% endfor %}
     </div>
     <div class="bebidas">
@@ -78,7 +79,7 @@
 <button type="button" class="collapse" style="margin-top: 50px; text-align: center;">Pagar com PIX</button>
 <div class="group">
     <form action="/pagar" method="post">
-        <input type="number" step=".01" name="valor" id="valor" placeholder="Insira o valor">
+        <input type="number" step=".01" onkeyup="oneDot(this)" name="valor" id="valor" value="00.00">
         <button type="submit" class="enviar">Gerar QR Code</button>
     </form>
 </div>
@@ -112,6 +113,21 @@
         content.style.maxHeight = content.scrollHeight + "px";
         }
         });
+    }
+
+    function oneDot(input) {
+        let value = input.value
+        value = value.split('.').join('')
+        
+        if (value.length <= 2) {
+            value =  '00.' + value.substring(value.length - 2, value.length)
+        }
+        else {
+            value = value.substring(0, value.length - 2) + '.' + value.substring(value.length - 2, value.length)
+            if (value.substring(0, 2) == '00') { value -= value.substring(0, 2)} else if (value.substring(0, 1) == '0') {value -= value.substring(0, 1)}
+        }
+        
+        input.value = value
     }
 </script>
 </body>

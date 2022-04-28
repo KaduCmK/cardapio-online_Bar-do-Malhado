@@ -17,9 +17,16 @@
             <div class="grupo">
                 {% for comida in comidas %}
                     <div style="display: flex; border: solid 1px;">
+                    <div class="actions">
                         <form action={{ "/editar/comidas/" ~ comida[0] ~ "/" ~ key}} method="post">
                             <button type="submit">Editar</button>
                         </form>
+                        <form action={{ "/remover/" ~ key }} method="post">
+                            <input type="hidden" name="id" value={{ comida[0] }}>
+                            <input type="hidden" name="table" value="comidas">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </div>
                         <div class="produto">
                             <p>{{ comida[2] }}</p>
                         </div>
@@ -38,9 +45,16 @@
             <div class="grupo">
                 {% for bebida in bebidas %}
                 <div style="display: flex; border: solid 1px;">
-                    <form action={{ "/editar/bebidas/" ~ bebida[0] ~ "/" ~ key}} method="post">
-                        <button type="submit">Editar</button>
-                    </form>
+                    <div class="actions">
+                        <form action={{ "/editar/bebidas/" ~ bebida[0] ~ "/" ~ key}} method="post">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <form action={{ "/remover/" ~ key }} method="post">
+                            <input type="hidden" name="id" value={{ bebida[0] }}>
+                            <input type="hidden" name="table" value="bebidas">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </div>
                     <div class="produto">
                         <p>{{ bebida[2] }}</p>
                     </div>
@@ -54,12 +68,13 @@
             {% endfor %}
             </div>
         </div>
+        
+        <form class="buttons" action={{ "/adicionar/" ~ key}} method="get">
+            <button class="new" name="table" value="comidas">Nova comida</button>
+            <button class="new" name="table" value="bebidas">Nova bebida</button>
+        </form>
 
     </div>
-    <div class="buttons">
-        <a href={{ "/adicionar/" ~ key}}>
-            <button class="new">Novo produto</button>
-        </a>
-    </div>
+    
 </body>
 </html>
