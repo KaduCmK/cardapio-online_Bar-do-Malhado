@@ -79,7 +79,7 @@
 <button type="button" class="collapse" style="margin-top: 50px; text-align: center;">Pagar com PIX</button>
 <div class="group">
     <form action="/pagar" method="post">
-        <input type="number" step=".01" onkeyup="oneDot(this)" name="valor" id="valor" value="00.00">
+        <input type="number" step="any" onkeyup="oneDot(this)" name="valor" id="valor" value="00.00">
         <button type="submit" class="enviar">Gerar QR Code</button>
     </form>
 </div>
@@ -119,12 +119,9 @@
         let value = input.value
         value = value.split('.').join('')
         
-        if (value.length <= 2) {
-            value =  '00.' + value.substring(value.length - 2, value.length)
-        }
-        else {
-            value = value.substring(0, value.length - 2) + '.' + value.substring(value.length - 2, value.length)
-            if (value.substring(0, 2) == '00') { value -= value.substring(0, 2)} else if (value.substring(0, 1) == '0') {value -= value.substring(0, 1)}
+        value = value.substring(0, value.length - 2) + '.' + value.substring(value.length - 2, value.length)
+        if (value.length > 5 && value.substring(0, 2).includes('0')) {
+            value = Number(value)
         }
         
         input.value = value
