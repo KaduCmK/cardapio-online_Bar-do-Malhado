@@ -4,7 +4,7 @@ import urllib.parse as urlparse
 import random
 import string
 
-if os.getenv('DEV') == 'True':
+if os.getenv('DEV') == '1':
     dbname = 'bardomalhado'
     user = os.getenv('DB_USER')
     password = os.getenv('DB_PASSWORD')
@@ -17,7 +17,6 @@ else:
     password = url.password
     host = url.hostname
     port = url.port
-
 
 def conectar():
     conexao = psycopg2.connect(
@@ -159,6 +158,7 @@ def getKey():
     con, cur = conectar()
     cur.execute(f"SELECT * FROM keys")
     key = cur.fetchone()
+    print(key)
     
     cur.close()
     con.close()

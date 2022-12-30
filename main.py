@@ -4,11 +4,11 @@ import database as db
 import codigoQR
 
 app = Flask(__name__)
-if os.getenv('DEV') == 'True':
+if os.getenv('DEV') == '1':
     app.debug = True
+    print('dev')
 else:
     app.debug = False
-
 
 @app.route('/')
 def index():
